@@ -2,7 +2,7 @@
     <v-layout align-start>
         <v-flex>
             <v-toolbar flat color="white">
-                <v-toolbar-title>Enfermedades</v-toolbar-title>
+                <v-toolbar-title>Signos</v-toolbar-title>
                     <v-divider
                     class="mx-2"
                     inset
@@ -23,6 +23,9 @@
                                 <v-layout wrap>
                                 <v-flex xs12 sm12 md12>
                                     <v-text-field v-model="nombre" label="Nombre"></v-text-field>
+                                </v-flex>
+                                <v-flex xs12 sm12 md12>
+                                    <v-text-field v-model="value" label="Value"></v-text-field>
                                 </v-flex>
                                 <v-flex xs12 sm12 md12>
                                     <v-text-field v-model="descripcion" label="Descripción"></v-text-field>
@@ -70,7 +73,7 @@
                 </v-toolbar>
             <v-data-table
                 :headers="headers"
-                :items="categorias"
+                :items="signos"
                 :search="search"
                 class="elevation-1"
             >
@@ -101,6 +104,7 @@
                         </template>
                     </td>
                     <td>{{ props.item.nombre }}</td>
+                    <td>{{ pros.item.value }}</td>
                     <td>{{ props.item.descripcion }}</td>
                     <td>
                         <div v-if="props.item.condicion">
@@ -128,13 +132,15 @@
                 headers: [
                     { text: 'Opciones', value: 'opciones', sortable: false },
                     { text: 'Nombre', value: 'nombre' },
+                    { text: 'Value', value: 'value', sortable: false  },
                     { text: 'Descripción', value: 'descripcion', sortable: false  },
-                    { text: 'Estado', value: 'condicion', sortable: false  }                
+                    { text: 'Condición', value: 'condicion', sortable: false  }                
                 ],
                 search: '',
                 editedIndex: -1,
                 id: '',
                 nombre: '',
+                value: '',
                 descripcion: '',
                 valida: 0,
                 validaMensaje:[],
@@ -146,7 +152,7 @@
         },
         computed: {
             formTitle () {
-                return this.editedIndex === -1 ? 'Nueva categoría' : 'Actualizar categoría'
+                return this.editedIndex === -1 ? 'Nuevo signo' : 'Actualizando signo'
             }
         },
 
@@ -162,7 +168,7 @@
         methods:{
             listar(){
                 let me=this;
-                axios.get('api/Enfermedades/Listar').then(function(response){
+                axios.get('api/Signos/Listar').then(function(response){
                     //console.log(response);
                     me.categorias=response.data;
                 }).catch(function(error){
@@ -172,6 +178,7 @@
             editItem (item) {
                 this.id=item.idcategoria;
                 this.nombre=item.nombre;
+                this.value=item.value;
                 this.descripcion=item.descripcion;
                 this.editedIndex=1;
                 this.dialog = true
@@ -188,6 +195,7 @@
             limpiar(){
                 this.id="";
                 this.nombre="";
+                this.value="";
                 this.descripcion="";
                 this.editedIndex=-1;
             },
@@ -197,11 +205,11 @@
                 }
                 if (this.editedIndex > -1) {
                     //Código para editar
-                    //Código para guardar
                     let me=this;
-                    axios.put('api/Categorias/Actualizar',{
+                    axios.put('api/Signos/Actualizar',{
                         'idcategoria':me.id,
                         'nombre': me.nombre,
+                        'value': me.value,
                         'descripcion': me.descripcion
                     }).then(function(response){
                         me.close();
@@ -213,8 +221,9 @@
                 } else {
                     //Código para guardar
                     let me=this;
-                    axios.post('api/Categorias/Crear',{
+                    axios.post('api/Signos/Crear',{
                         'nombre': me.nombre,
+                        'value': me.value,
                         'descripcion': me.descripcion
                     }).then(function(response){
                         me.close();

@@ -22,7 +22,7 @@
             <v-list-tile slot="activator">
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Almacén
+                  Enfermedad
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -36,13 +36,13 @@
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile :to="{ name: ''}">
+            <v-list-tile :to="{ name: 'signos'}">
               <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
+                <v-icon>accessibility_new</v-icon>
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Artículos
+                  Signos
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -54,7 +54,7 @@
             <v-list-tile slot="activator">
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Compras
+                  Citas
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -64,7 +64,7 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Ingresos
+                  Agenda
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -74,7 +74,7 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Proveedores
+                  Alertas
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -86,7 +86,7 @@
             <v-list-tile slot="activator">
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Ventas
+                  Personas
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
@@ -96,21 +96,10 @@
               </v-list-tile-action>
               <v-list-tile-content>
                 <v-list-tile-title>
-                  Ventas
+                  Pacientes
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
-            <v-list-tile :to="{ name: ''}">
-              <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  Clientes
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
           </v-list-group>
         </template>
         <template>
@@ -139,38 +128,6 @@
               <v-list-tile-content>
                 <v-list-tile-title>
                   Usuarios
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-
-          </v-list-group>
-        </template>
-        <template>
-          <v-list-group>
-            <v-list-tile slot="activator">
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  Consultas
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile :to="{ name: ''}">
-              <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  Consultas compras
-                </v-list-tile-title>
-              </v-list-tile-content>
-            </v-list-tile>
-            <v-list-tile :to="{ name: ''}">
-              <v-list-tile-action>
-                <v-icon>table_chart</v-icon>
-              </v-list-tile-action>
-              <v-list-tile-content>
-                <v-list-tile-title>
-                  Consultas ventas
                 </v-list-tile-title>
               </v-list-tile-content>
             </v-list-tile>
