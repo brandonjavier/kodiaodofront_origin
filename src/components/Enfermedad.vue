@@ -2,7 +2,7 @@
     <v-layout align-start>
         <v-flex>
             <v-toolbar flat color="white">
-                <v-toolbar-title>Categorías</v-toolbar-title>
+                <v-toolbar-title>Enfermedades</v-toolbar-title>
                     <v-divider
                     class="mx-2"
                     inset
